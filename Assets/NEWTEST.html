@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube Video with Multiple Audio Tracks</title>
+</head>
+<body>
+    <div>
+        <iframe id="youtubeVideo" width="640" height="360" src="https://www.youtube.com/embed/UkgVxbrklIA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+
+    <div>
+        <label for="audioTracks">Select Audio Track:</label>
+        <select id="audioTracks">
+            <option value="audio1.mp3">English</option>
+            <option value="audio2.mp3">Spanish</option>
+            <!-- Add more options for additional audio tracks -->
+        </select>
+        <audio id="audioPlayer" controls>
+            <source src="audio1.mp3" type="audio/mp3">
+            Your browser does not support the audio element.
+        </audio>
+    </div>
+
+    <script>
+        const audioTracks = document.getElementById('audioTracks');
+        const audioPlayer = document.getElementById('audioPlayer');
+
+        audioTracks.addEventListener('change', function() {
+            audioPlayer.src = audioTracks.value;
+            audioPlayer.play();
+        });
+    </script>
+</body>
+</html>
